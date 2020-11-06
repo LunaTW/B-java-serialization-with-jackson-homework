@@ -1,5 +1,8 @@
 package com.thoughtworks.capability.gtb.controller;
 
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 import com.thoughtworks.capability.gtb.vo.EventType;
 import com.thoughtworks.capability.gtb.vo.EventVo;
 import com.thoughtworks.capability.gtb.vo.UserVo;
@@ -19,7 +22,7 @@ public class EventController {
   @GetMapping("/events/{id}")
   public EventVo getEventById(@PathVariable("id") String id) {
     UserVo user = new UserVo("3", "张三");
-    return new EventVo(id, "下载文件", EventType.DOWNLOAD, new Date(), user);
+    return new EventVo(id, "下载文件", EventType.D, new Date(), user);
   }
 
   @PostMapping("/events")
